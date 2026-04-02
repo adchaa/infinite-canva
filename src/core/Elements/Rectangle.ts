@@ -1,9 +1,4 @@
-import { CanvasElement, type Rect } from "./Element";
-
-type Style = {
-  fillColor?: string;
-  strokeColor?: string;
-};
+import { CanvasElement, Style, type Rect } from "./CanvasElement";
 
 export class Rectangle extends CanvasElement {
   constructor(
@@ -11,9 +6,9 @@ export class Rectangle extends CanvasElement {
     y: number,
     private width: number,
     private height: number,
-    private style?: Style
+    style?: Style,
   ) {
-    super(x, y);
+    super(x, y, style);
   }
 
   override getBounds(): Rect {
