@@ -2,6 +2,7 @@ import { Canvas } from "@/core/Canvas";
 import { Renderer } from "@/display/Renderer";
 import { DomRenderer } from "@/display/web2D/DomRenderer";
 import { Rectangle } from "@/core/Elements/Rectangle";
+import { DomEventHandler } from "./display/web2D/EventHandler";
 
 const canvas = new Canvas();
 
@@ -23,6 +24,7 @@ if (typeof window !== "undefined") {
     height: window.innerHeight * dpr,
   };
   renderer = new DomRenderer(htmlCanvas);
+  DomEventHandler.registerEvents(canvas);
   window.addEventListener("resize", () => {
     canvas.dimensions = {
       width: window.innerWidth * dpr,

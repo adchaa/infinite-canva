@@ -1,4 +1,5 @@
 import type { CanvasElement, Rect } from "@/core/Elements/CanvasElement";
+import { Cord } from "@/types";
 
 function rectOverlap(a: Rect, b: Rect): boolean {
   return (
@@ -15,6 +16,13 @@ export class Canvas {
   private width: number = 0;
   private height: number = 0;
   private elements: CanvasElement[] = [];
+
+  get cord(): Cord {
+    return {
+      x: this.x,
+      y: this.y,
+    };
+  }
 
   getBounds(): Rect {
     return {

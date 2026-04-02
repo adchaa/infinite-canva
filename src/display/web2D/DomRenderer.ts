@@ -38,7 +38,7 @@ export class DomRenderer implements Renderer {
     this.ctx.restore();
     for (const element of canvas.getElementsInBounds()) {
       this.ctx.save();
-      DrawerFactory.getDrawer(element)?.draw(this.ctx, element);
+      DrawerFactory.getDrawer(element)?.draw(this.ctx, element, canvas.cord);
       this.ctx.restore();
     }
   }
